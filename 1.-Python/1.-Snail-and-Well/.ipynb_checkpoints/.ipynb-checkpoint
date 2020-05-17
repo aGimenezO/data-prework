@@ -30,7 +30,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 1,
+   "execution_count": 8,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -49,7 +49,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 2,
+   "execution_count": 9,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -65,17 +65,13 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 3,
+   "execution_count": 10,
    "metadata": {},
    "outputs": [],
    "source": [
     "while snail_position < well_height:\n",
-    "    snail_position += daily_distance\n",
-    "    if(snail_position > well_height):\n",
-    "        break\n",
-    "    else:\n",
-    "        snail_position +=  nightly_distance\n",
-    "        days += 1"
+    "    snail_position += daily_distance + nightly_distance\n",
+    "    days += 1"
    ]
   },
   {
@@ -87,16 +83,16 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 4,
+   "execution_count": 11,
    "metadata": {},
    "outputs": [
     {
      "data": {
       "text/plain": [
-       "10"
+       "13"
       ]
      },
-     "execution_count": 4,
+     "execution_count": 11,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -124,7 +120,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 12,
+   "execution_count": 13,
    "metadata": {},
    "outputs": [
     {
@@ -133,25 +129,18 @@
        "6"
       ]
      },
-     "execution_count": 12,
+     "execution_count": 13,
      "metadata": {},
      "output_type": "execute_result"
     }
    ],
    "source": [
     "advance_cm = [30, 21, 33, 77, 44, 45, 23, 45, 12, 34, 55]\n",
-    "daily_displacement = []\n",
     "snail_position = 0\n",
-    "days = 1\n",
-    "while snail_position <= well_height:\n",
-    "    snail_position += advance_cm[days-1]\n",
-    "    if(snail_position > well_height):\n",
-    "        daily_displacement.append(snail_position)\n",
-    "        break\n",
-    "    else:\n",
-    "        snail_position +=  nightly_distance\n",
-    "        days += 1\n",
-    "        daily_displacement.append()\n",
+    "days = 0\n",
+    "while snail_position < well_height:\n",
+    "    snail_position += advance_cm[days] + nightly_distance\n",
+    "    days += 1\n",
     "days"
    ]
   },
@@ -165,7 +154,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 18,
+   "execution_count": 16,
    "metadata": {},
    "outputs": [
     {
@@ -173,15 +162,13 @@
      "output_type": "stream",
      "text": [
       "The maximum amount displaced is  77\n",
-      "The minimum amount displaced is  12\n",
-      "[10, 1, 13, 57, 24, 25]\n"
+      "The minimum amount displaced is  12\n"
      ]
     }
    ],
    "source": [
     "print(\"The maximum amount displaced is \", max(advance_cm))\n",
-    "print(\"The minimum amount displaced is \", min(advance_cm))\n",
-    "print([x + nightly_distance for x in advance_cm[:days]])"
+    "print(\"The minimum amount displaced is \", min(advance_cm))"
    ]
   },
   {
@@ -208,7 +195,7 @@
     }
    ],
    "source": [
-    "advance_cm_including_night = [x - nightly_distance for x in advance_cm[:days-1]]\n",
+    "advance_cm_including_night = [x - nightly_distance for x in advance_cm]\n",
     "sum(advance_cm_including_night)/len(advance_cm_including_night)"
    ]
   },

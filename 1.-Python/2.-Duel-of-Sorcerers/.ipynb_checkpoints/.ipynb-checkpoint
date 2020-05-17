@@ -49,7 +49,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 2,
+   "execution_count": 1,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -219,17 +219,9 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 19,
+   "execution_count": 24,
    "metadata": {},
-   "outputs": [
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "Gandalf wins\n"
-     ]
-    }
-   ],
+   "outputs": [],
    "source": [
     "for x in range(len(gandalf_power)):\n",
     "    if gandalf_power[x] > saruman_power[x]:\n",
@@ -256,7 +248,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 22,
+   "execution_count": 25,
    "metadata": {},
    "outputs": [
     {
@@ -283,7 +275,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 23,
+   "execution_count": 26,
    "metadata": {},
    "outputs": [
     {
